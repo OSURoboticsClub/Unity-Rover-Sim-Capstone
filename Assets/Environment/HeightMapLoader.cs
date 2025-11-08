@@ -30,6 +30,14 @@ public class HeightMapLoader : MonoBehaviour
     private float actualMinHeight;
     private float actualMaxHeight;
 
+    private enum ColorMode
+    {
+        Slope,
+        Height
+    }
+    [SerializeField]
+    private ColorMode colorMode;
+
     void Start()
     {
         heightMap = ReadCSV(filePath);
@@ -145,6 +153,11 @@ public class HeightMapLoader : MonoBehaviour
             gradientMaterial.SetColor("_LowColor", lowHeightColor);
             gradientMaterial.SetColor("_MidColor", midHeightColor);
             gradientMaterial.SetColor("_HighColor", highHeightColor);
+            if (colorMode == ColorMode.Height)
+                gradientMaterial.SetInt("_ColorMode", 0);
+            if (colorMode == ColorMode.Slope)
+                gradientMaterial.SetInt("_ColorMode", 1);
+
             
             // Set the desert texture if available
             if (desertTexture != null)
@@ -244,6 +257,21 @@ public class HeightMapLoader : MonoBehaviour
         int textureHeight = Mathf.CeilToInt(terrainHeight * pixelsPerUnit);
 
         // Print the required texture size for tiling the terrain once
-       
+
+    }
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (colorMode == ColorMode.Slope)
+                colorMode = ColorMode.Height;
+            else if (colorMode == ColorMode.Height)
+                colorMode = ColorMode.Slope;
+            if (colorMode == ColorMode.Height)
+                terrain.materialTemplate.SetInt("_ColorMode", 0);
+            if (colorMode == ColorMode.Slope)
+                terrain.materialTemplate.SetInt("_ColorMode", 1);
+        }
     }
 }

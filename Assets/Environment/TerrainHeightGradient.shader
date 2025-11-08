@@ -8,6 +8,7 @@ Shader "Custom/TerrainHeightGradient" {
         _HighColor ("High Height Color", Color) = (1,0,0,1)
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+        _ColorMode("ColorMode", Int) = 1
     }
     SubShader {
         Tags { "RenderType"="Opaque" }
@@ -25,6 +26,7 @@ Shader "Custom/TerrainHeightGradient" {
         struct Input {
             float2 uv_MainTex;
             float3 worldPos;
+            float3 worldNormal;
         };
 
         half _Glossiness;
@@ -34,6 +36,7 @@ Shader "Custom/TerrainHeightGradient" {
         fixed4 _LowColor;
         fixed4 _MidColor;
         fixed4 _HighColor;
+        int _ColorMode;
 
         void surf (Input IN, inout SurfaceOutputStandard o) {
             // Get the world Y position (height)
@@ -41,16 +44,29 @@ Shader "Custom/TerrainHeightGradient" {
             
             // Normalize height between 0 and 1 based on min/max height
             float normalizedHeight = saturate((height - _MinHeight) / (_MaxHeight - _MinHeight));
-            
-            // Calculate the color based on height
+            float3 normal = normalize(IN.worldNormal);
+            float slope = 1.0 - saturate(dot(normalize(normal), float3(0,1,0)));
             fixed4 color;
-            if (normalizedHeight < 0.5) {
-                // Interpolate between low and mid color
-                color = lerp(_LowColor, _MidColor, normalizedHeight * 2);
-            } else {
-                // Interpolate between mid and high color
-                color = lerp(_MidColor, _HighColor, (normalizedHeight - 0.5) * 2);
+            if(_ColorMode == 0){
+                // Calculate the color based on height
+                if (normalizedHeight < 0.5) {
+                    // Interpolate between low and mid color
+                    color = lerp(_LowColor, _MidColor, normalizedHeight * 2);
+                } else {
+                    // Interpolate between mid and high color
+                    color = lerp(_MidColor, _HighColor, (normalizedHeight - 0.5) * 2);
+            }}
+
+            if(_ColorMode == 1){
+                slope = slope * 3;
+                if(slope >= 1.0f){
+                    slope = 1.0f;
+                }
+                float4 green = float4(0.0f,1.0f,0.0f,1.0f);
+                float4 red = float4(1.0f,0.0f,0.0f,1.0f);
+                color = lerp(green,red , slope);
             }
+
             
             // Apply texture as a detail overlay
             fixed4 texColor = tex2D(_MainTex, IN.uv_MainTex);
