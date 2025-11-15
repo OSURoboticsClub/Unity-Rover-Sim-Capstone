@@ -2,34 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
+using System.Security.Cryptography.X509Certificates;
 
-public class HeightMapLoader : MonoBehaviour
+
+public class TerrainScript : MonoBehaviour
 {
-    public string filePath = "Assets/heightmap.csv"; // Path to your CSV height map
-    public float heightScale = 50f; // Adjust this based on actual elevation changes
-    public float terrainScale = 10f; // Scale factor to increase terrain size
-    public Terrain terrain; // Assign in the Unity Editor
-    public Texture2D desertTexture; // Assign your TIF file in Unity Editor
-    public float pixelsPerUnit = 1f; // Adjust this based on how many pixels per unit you want
-    
-    // Render distance settings
-    public float viewDistance = 10000f; // Maximum distance at which the terrain will be visible
-    public int basemapDistance = 5000; // Distance used for the lowest detail level
-    
-    // Height Gradient properties
-    public bool useHeightGradient = true; // Toggle to use height gradient
-    public Color lowHeightColor = new Color(0, 0, 1); // Blue for low areas
-    public Color midHeightColor = new Color(0, 1, 0); // Green for middle areas
-    public Color highHeightColor = new Color(1, 0, 0); // Red for high areas
-    public float minGradientHeight = 0f; // Minimum height for gradient
-    public float maxGradientHeight = 50f; // Maximum height for gradient
+    [SerializeField]
+    private string filePath = "Assests/heightmap.csv";
+
+    [SerializeField]
+    private float heightScale = 50f;
+
+    [SerializeField]
+    public float terrainScale = 10f;
+
+    [SerializeField]
+    private Terrain terrain;
+
+    [SerializeField]
+    private Texture2D desertTexture;
+
+    private TerrainCollider terrainCollider;
+
+    [SerializeField]
+    private float pixelsPerUnit = 1f;
+
+    [SerializeField]
+    private float viewDistance = 10000000f;
+
+    private float basemapDistance = 50f;
+
+    [SerializeField]
+    private bool useHeightGradient = true;
+    [SerializeField]
+    private Color lowHeightColor = new Color(0,0,1);
+    [SerializeField]
+    private Color midHeightColor = new Color(0,1,0);
+    [SerializeField]
+    private Color highHeightColor = new Color(1,0,0);
+
+
+    [SerializeField]
+    private float minGradientHeight = 0f;
+
+
+    [SerializeField]
+    private float maxGradientHeight = 50f;
 
     private int width;
     private int height;
-    private float[,] heightMap;
-    private float actualMinHeight;
-    private float actualMaxHeight;
 
+    private float [,] heightMap;
+
+    private float actualMinHeight;
+
+    private float actualMaxHeight;
     private enum ColorMode
     {
         Slope,
@@ -38,12 +66,17 @@ public class HeightMapLoader : MonoBehaviour
     [SerializeField]
     private ColorMode colorMode;
 
+
+    // Start is called before the first frame update
     void Start()
     {
+        terrain = GetComponent<Terrain>();
+        terrainCollider = GetComponent<TerrainCollider>();
+        terrainCollider.isTrigger = false;
         heightMap = ReadCSV(filePath);
         GenerateTerrain(heightMap);
         ClearTerrainLayers();
-        
+
         if (useHeightGradient) {
             ApplyHeightGradient();
         } else {
@@ -52,8 +85,9 @@ public class HeightMapLoader : MonoBehaviour
         
         SetRenderDistance();
         CalculateRequiredTextureSize();
-        // Debug.Log(this.terrain.terrainData.detailPrototypes.ToString());
+        // Debug.Log(this.terrain.terrainData
     }
+
 
     float[,] ReadCSV(string path)
     {
@@ -63,12 +97,17 @@ public class HeightMapLoader : MonoBehaviour
 
         float[,] map = new float[width, height];
 
-        for (int y = 0; y < height; y++)
+        for(int y = 0; y < height; y++)
         {
             string[] values = lines[y].Split(',');
+            if(values.Length != width)
+            {
+                Debug.Log("ReadCSV: Invalid line length.");
+            }
+
             for (int x = 0; x < width; x++)
             {
-                map[x, y] = float.Parse(values[x]);
+                map[x,y] = float.Parse(values[x]);
             }
         }
 
@@ -125,6 +164,7 @@ public class HeightMapLoader : MonoBehaviour
 
         // Assign the terrain data to the existing terrain in the scene
         terrain.terrainData = terrainData;
+        terrainCollider.terrainData = terrainData;
         
         // Log the terrain size and height range for debugging
         Debug.Log($"Terrain dimensions: {terrainData.size.x} x {terrainData.size.y} x {terrainData.size.z}");
@@ -137,6 +177,7 @@ public class HeightMapLoader : MonoBehaviour
             Debug.Log($"Setting gradient height range: {minGradientHeight} to {maxGradientHeight}");
         }
     }
+
 
     void ApplyHeightGradient()
     {
