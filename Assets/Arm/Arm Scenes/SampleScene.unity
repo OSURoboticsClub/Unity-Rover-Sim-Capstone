@@ -1585,51 +1585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9090ae501ff9cd459bec5271d40249c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &598096487
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 598096488}
-  - component: {fileID: 598096489}
-  m_Layer: 0
-  m_Name: unnamed
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &598096488
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598096487}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 775929039}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &598096489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598096487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  geometryType: 0
 --- !u!1 &676041773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,7 +2062,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1843716657}
-  - {fileID: 598096488}
   m_Father: {fileID: 1176192510}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &775929040
@@ -2379,8 +2333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joint: {fileID: 841103287}
   speed: 50
-  positiveKey: 113
-  negativeKey: 101
+  positiveKey: 97
+  negativeKey: 100
 --- !u!1 &877625131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3126,6 +3080,7 @@ GameObject:
   - component: {fileID: 1176192511}
   - component: {fileID: 1176192513}
   - component: {fileID: 1176192512}
+  - component: {fileID: 1176192514}
   m_Layer: 0
   m_Name: base_link
   m_TagString: Untagged
@@ -3247,6 +3202,20 @@ ArticulationBody:
   m_Immovable: 0
   m_UseGravity: 1
   m_CollisionDetectionMode: 0
+--- !u!114 &1176192514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176192509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab6248ca04fb044dbbc5d277437ee7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateForce: 0
+  driveForce: 100
 --- !u!1 &1214552146
 GameObject:
   m_ObjectHideFlags: 0
@@ -4592,6 +4561,7 @@ GameObject:
   - component: {fileID: 1661211549}
   - component: {fileID: 1661211548}
   - component: {fileID: 1661211547}
+  - component: {fileID: 1661211550}
   m_Layer: 0
   m_Name: rover_body
   m_TagString: Untagged
@@ -4641,7 +4611,7 @@ ArticulationBody:
   m_GameObject: {fileID: 1661211545}
   m_Enabled: 1
   serializedVersion: 5
-  m_Mass: 8
+  m_Mass: 5
   m_ParentAnchorPosition: {x: -0.084615, y: -0.03175, z: 0}
   m_ParentAnchorRotation: {x: -0.7071068, y: -0.7071068, z: -0.00000003090862, w: -0.00000003090862}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
@@ -4711,6 +4681,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1661211550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661211545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab6248ca04fb044dbbc5d277437ee7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateForce: 0
+  driveForce: 200
 --- !u!1 &1677805556
 GameObject:
   m_ObjectHideFlags: 8
@@ -4922,8 +4906,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joint: {fileID: 1700684496}
   speed: 50
-  positiveKey: 113
-  negativeKey: 101
+  positiveKey: 122
+  negativeKey: 99
 --- !u!1 &1843716656
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,9 +5351,9 @@ MonoBehaviour:
   selectedJoint: 
   selectedIndex: 0
   control: 0
-  stiffness: 0
-  damping: 0
-  forceLimit: 0
+  stiffness: 200
+  damping: 10
+  forceLimit: 200
   speed: 5
   torque: 100
   acceleration: 5
@@ -5563,7 +5547,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1980670395}
   - {fileID: 1296913407}
+  - {fileID: 963194228}
