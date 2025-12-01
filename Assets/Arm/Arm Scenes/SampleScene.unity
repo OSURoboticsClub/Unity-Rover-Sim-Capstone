@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &47712441
 GameObject:
   m_ObjectHideFlags: 8
@@ -302,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1001 &180372357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &251710849
 GameObject:
   m_ObjectHideFlags: 8
@@ -499,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &411571066
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1001 &447494033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1624,6 +1629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &676041773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &804966520
 GameObject:
   m_ObjectHideFlags: 8
@@ -2257,6 +2264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAxis: 0
+  jointName: 
+  EffortLimit: 1000
+  VelocityLimit: 1000
 --- !u!114 &841103286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,6 +2280,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayInertiaGizmo: 0
+  useUrdfData: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
+  inertiaTensor: {x: 0, y: 0, z: 0}
+  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 0}
+  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!171741748 &841103287
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -2347,6 +2364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBaseLink: 0
 --- !u!114 &841103289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2359,7 +2377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca39207be0f4eac499cc7ac4fe4d4f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint: {fileID: 0}
+  joint: {fileID: 841103287}
   speed: 50
   positiveKey: 113
   negativeKey: 101
@@ -2408,6 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1001 &942334519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2684,6 +2703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &1020591949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +2754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAxis: 0
+  jointName: 
+  EffortLimit: 1000
+  VelocityLimit: 1000
 --- !u!114 &1020591952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2746,6 +2770,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayInertiaGizmo: 0
+  useUrdfData: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
+  inertiaTensor: {x: 0, y: 0, z: 0}
+  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 0}
+  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!171741748 &1020591953
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -2824,6 +2854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBaseLink: 0
 --- !u!1 &1124766392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,6 +2906,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAxis: 0
+  jointName: 
+  EffortLimit: 1000
+  VelocityLimit: 1000
 --- !u!114 &1124766395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2887,6 +2922,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayInertiaGizmo: 0
+  useUrdfData: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
+  inertiaTensor: {x: 0, y: 0, z: 0}
+  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 0}
+  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!171741748 &1124766396
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -2965,6 +3006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBaseLink: 0
 --- !u!114 &1124766398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2977,7 +3019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca39207be0f4eac499cc7ac4fe4d4f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint: {fileID: 0}
+  joint: {fileID: 1124766396}
   speed: 50
   positiveKey: 113
   negativeKey: 101
@@ -3026,6 +3068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &1139021176
 GameObject:
   m_ObjectHideFlags: 8
@@ -3121,6 +3164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBaseLink: 0
 --- !u!114 &1176192512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3133,6 +3177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAxis: 0
+  jointName: 
+  EffortLimit: 1000
+  VelocityLimit: 1000
 --- !u!171741748 &1176192513
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -3249,6 +3297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAxis: 0
+  jointName: 
+  EffortLimit: 1000
+  VelocityLimit: 1000
 --- !u!114 &1214552149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3261,6 +3313,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayInertiaGizmo: 0
+  useUrdfData: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
+  inertiaTensor: {x: 0, y: 0, z: 0}
+  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 0}
+  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!171741748 &1214552150
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -3339,6 +3397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBaseLink: 0
 --- !u!114 &1214552152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3351,7 +3410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca39207be0f4eac499cc7ac4fe4d4f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint: {fileID: 0}
+  joint: {fileID: 1214552150}
   speed: 50
   positiveKey: 113
   negativeKey: 101
@@ -4153,6 +4212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &1511448543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,6 +4258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &1515620418
 GameObject:
   m_ObjectHideFlags: 0
@@ -4248,6 +4309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAxis: 0
+  jointName: 
+  EffortLimit: 1000
+  VelocityLimit: 1000
 --- !u!114 &1515620421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4260,6 +4325,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayInertiaGizmo: 0
+  useUrdfData: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
+  inertiaTensor: {x: 0, y: 0, z: 0}
+  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 0}
+  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!171741748 &1515620422
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -4338,6 +4409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBaseLink: 0
 --- !u!1001 &1561472931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4507,6 +4579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &1661211545
 GameObject:
   m_ObjectHideFlags: 0
@@ -4555,6 +4628,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAxis: 0
+  jointName: 
+  EffortLimit: 1000
+  VelocityLimit: 1000
 --- !u!171741748 &1661211548
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -4633,6 +4710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBaseLink: 0
 --- !u!1 &1677805556
 GameObject:
   m_ObjectHideFlags: 8
@@ -4729,6 +4807,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAxis: 0
+  jointName: 
+  EffortLimit: 1000
+  VelocityLimit: 1000
 --- !u!114 &1700684495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4741,6 +4823,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayInertiaGizmo: 0
+  useUrdfData: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
+  inertiaTensor: {x: 0, y: 0, z: 0}
+  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 0}
+  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!171741748 &1700684496
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -4819,6 +4907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBaseLink: 0
 --- !u!114 &1700684498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4831,7 +4920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca39207be0f4eac499cc7ac4fe4d4f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint: {fileID: 0}
+  joint: {fileID: 1700684496}
   speed: 50
   positiveKey: 113
   negativeKey: 101
@@ -4880,6 +4969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &1856761400
 GameObject:
   m_ObjectHideFlags: 8
@@ -5032,6 +5122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &1910246045
 GameObject:
   m_ObjectHideFlags: 0
@@ -5077,6 +5168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1001 &1948294893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5241,6 +5333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  geometryType: 0
 --- !u!1 &1980670392
 GameObject:
   m_ObjectHideFlags: 0
@@ -5271,6 +5364,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d607ea46a579d44c4b19a6322ce4b9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedJoint: 
+  selectedIndex: 0
+  control: 0
+  stiffness: 0
+  damping: 0
+  forceLimit: 0
+  speed: 5
+  torque: 100
+  acceleration: 5
+  highLightColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1980670394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5283,6 +5386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf4c79288754864b8d522b69f4b52a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FilePath: 
+  chosenAxis: 0
+  currentOrientation: 0
+  collisionExceptions: []
 --- !u!4 &1980670395
 Transform:
   m_ObjectHideFlags: 0
