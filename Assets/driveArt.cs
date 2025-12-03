@@ -24,6 +24,8 @@ public class driveArt : MonoBehaviour
         archiveRotateForce = rotateForce;
         initPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z) ;
         initRotation = new Quaternion(transform.rotation.x,transform.rotation.y,transform.rotation.z,transform.rotation.w);
+
+
     }
 
     // Update is called once per frame
