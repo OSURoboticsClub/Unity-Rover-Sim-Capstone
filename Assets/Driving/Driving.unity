@@ -244,9 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7584e6f89a0c0f0428024284853eb35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  driveForce: 20
   tipObject: {fileID: 2109631192}
   farObject: {fileID: 777271300}
+  headObject: {fileID: 0}
+  rotateForce: 20
+  driveForce: 20
 --- !u!54 &130623127
 Rigidbody:
   m_ObjectHideFlags: 0
