@@ -73,8 +73,8 @@ public class driveArt : MonoBehaviour
     {
         if(collision.gameObject.tag == "Terrain")
         {
-            //driveForce = archiveDriveForce;
-            //rotateForce = archiveRotateForce;
+            driveForce = archiveDriveForce;
+            rotateForce = archiveRotateForce;
         }
     }
 
@@ -82,8 +82,8 @@ public class driveArt : MonoBehaviour
     {
         if(collision.gameObject.tag == "Terrain")
         {
-            //driveForce = 0;
-            //rotateForce = 0;
+            // driveForce = 0;
+            // rotateForce = 0;
         }
     }
 }
