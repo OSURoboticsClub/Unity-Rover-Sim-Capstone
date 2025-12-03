@@ -24,6 +24,8 @@ public class driveArt : MonoBehaviour
         archiveRotateForce = rotateForce;
         initPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z) ;
         initRotation = new Quaternion(transform.rotation.x,transform.rotation.y,transform.rotation.z,transform.rotation.w);
+
+
     }
 
     // Update is called once per frame
@@ -58,7 +60,7 @@ public class driveArt : MonoBehaviour
     void FixedUpdate()
     {
         ab.AddForce(translation);
-        //ab.AddTorque(rotation);
+        ab.AddTorque(rotation);
 
         translation = Vector3.zero;
         rotation = Vector3.zero;
@@ -68,8 +70,8 @@ public class driveArt : MonoBehaviour
     {
         if(collision.gameObject.tag == "Terrain")
         {
-            //driveForce = archiveDriveForce;
-            //rotateForce = archiveRotateForce;
+            driveForce = archiveDriveForce;
+            rotateForce = archiveRotateForce;
         }
     }
 
@@ -77,8 +79,8 @@ public class driveArt : MonoBehaviour
     {
         if(collision.gameObject.tag == "Terrain")
         {
-            //driveForce = 0;
-            //rotateForce = 0;
+            // driveForce = 0;
+            // rotateForce = 0;
         }
     }
 }
