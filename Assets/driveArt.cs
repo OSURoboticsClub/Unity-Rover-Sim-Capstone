@@ -10,6 +10,8 @@ public class driveArt : MonoBehaviour
 
     [SerializeField] float rotateForce;
     [SerializeField] float driveForce;
+    [SerializeField] float maxLinearVelocity;
+    [SerializeField] float maxAngularVelocity;
     float archiveRotateForce;
     float archiveDriveForce;
 
@@ -24,6 +26,9 @@ public class driveArt : MonoBehaviour
         archiveRotateForce = rotateForce;
         initPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z) ;
         initRotation = new Quaternion(transform.rotation.x,transform.rotation.y,transform.rotation.z,transform.rotation.w);
+    
+        ab.maxLinearVelocity = maxLinearVelocity;
+        ab.maxAngularVelocity = maxAngularVelocity;
     }
 
     // Update is called once per frame
@@ -58,7 +63,7 @@ public class driveArt : MonoBehaviour
     void FixedUpdate()
     {
         ab.AddForce(translation);
-        //ab.AddTorque(rotation);
+        ab.AddTorque(rotation);
 
         translation = Vector3.zero;
         rotation = Vector3.zero;
