@@ -58,7 +58,7 @@ public class driveArt : MonoBehaviour
     void FixedUpdate()
     {
         ab.AddForce(translation);
-        //ab.AddTorque(rotation);
+        ab.AddTorque(rotation);
 
         translation = Vector3.zero;
         rotation = Vector3.zero;
@@ -68,8 +68,8 @@ public class driveArt : MonoBehaviour
     {
         if(collision.gameObject.tag == "Terrain")
         {
-            //driveForce = archiveDriveForce;
-            //rotateForce = archiveRotateForce;
+            driveForce = archiveDriveForce;
+            rotateForce = archiveRotateForce;
         }
     }
 
@@ -77,8 +77,8 @@ public class driveArt : MonoBehaviour
     {
         if(collision.gameObject.tag == "Terrain")
         {
-            //driveForce = 0;
-            //rotateForce = 0;
+            driveForce = 0;
+            rotateForce = 0;
         }
     }
 }
