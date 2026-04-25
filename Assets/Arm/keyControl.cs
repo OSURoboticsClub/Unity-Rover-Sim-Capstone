@@ -53,8 +53,7 @@ public class JointKeyboardController : MonoBehaviour
         {
             return;
         }
-        linearX = 10.0f;
-        rotationZ = 10.0f;
+
 
         if(side == Side.Left)
         {
