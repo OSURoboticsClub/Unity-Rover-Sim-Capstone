@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class JointKeyboardController : MonoBehaviour
 {
+
+    public enum Side
+    {
+        Left,
+        Right
+    }
     [Header("Assign the Articulation Body you want to control")]
     public ArticulationBody joint;
 
@@ -10,28 +16,61 @@ public class JointKeyboardController : MonoBehaviour
     public KeyCode positiveKey = KeyCode.Q;
     public KeyCode negativeKey = KeyCode.E;
 
+    public Side side = Side.Left;
+
     private float target;
+    public float linearX;
+    private float rotationZ;
 
     void Start()
     {
         target = joint.xDrive.target;
     }
 
-    void Update()
+    public void SetVals(float linearX, float rotationZ)
     {
-        float move = 0f;
-        if (Input.GetKey(positiveKey))
-            move = 1f;
-        else if (Input.GetKey(negativeKey))
-            move = -1f;
+        this.linearX = linearX;
+        this.rotationZ = rotationZ;
+    }
 
-        if (move != 0)
+    void FixedUpdate()
+    {
+        // float move = 0f;
+        // if (Input.GetKey(positiveKey))
+        //     move = 1f;
+        // else if (Input.GetKey(negativeKey))
+        //     move = -1f;
+
+        // if (move != 0)
+        // {
+        //     target += move * speed * Time.deltaTime;
+
+        //     var drive = joint.xDrive;
+        //     drive.target = target;
+        //     joint.xDrive = drive;
+        // }
+        if(Time.frameCount < 50)
         {
-            target += move * speed * Time.deltaTime;
-
-            var drive = joint.xDrive;
-            drive.target = target;
-            joint.xDrive = drive;
+            return;
         }
+        linearX = 10.0f;
+        rotationZ = 10.0f;
+
+        if(side == Side.Left)
+        {
+            target = linearX - (rotationZ / 2.0f);
+        }
+        else
+        {
+            target = linearX + (rotationZ / 2.0f);
+        }
+
+        target *= speed / 10.0f;
+
+        var drive = joint.xDrive;
+        drive.target = target;
+        joint.xDrive = drive;
+
+
     }
 }
