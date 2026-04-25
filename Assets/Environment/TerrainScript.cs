@@ -78,9 +78,9 @@ public class TerrainScript : MonoBehaviour
         ClearTerrainLayers();
 
         if (useHeightGradient) {
-            ApplyHeightGradient();
+            //ApplyHeightGradient();
         } else {
-            ApplyDesertTexture();
+            //ApplyDesertTexture();
         }
         
         SetRenderDistance();

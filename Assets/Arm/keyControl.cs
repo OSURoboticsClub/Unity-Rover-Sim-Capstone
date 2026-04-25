@@ -6,7 +6,7 @@ public class JointKeyboardController : MonoBehaviour
     public ArticulationBody joint;
 
     [Header("Joint Motion Settings")]
-    public float speed = 50f; // degrees per second
+    public float speed = 500f; // degrees per second
     public KeyCode positiveKey = KeyCode.Q;
     public KeyCode negativeKey = KeyCode.E;
 
